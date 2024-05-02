@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Reflection;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Windows.Forms;
 
 namespace AioiLight.PrincessTool
 {
@@ -8,29 +7,32 @@ namespace AioiLight.PrincessTool
     {
         internal static string Folder(string def, IntPtr handle)
         {
-            var dialog = new CommonOpenFileDialog();
-            dialog.IsFolderPicker = true;
-            dialog.DefaultDirectory = def;
-            
-
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            //var dialog = new CommonOpenFileDialog();
+            var dialog = new FolderBrowserDialog
             {
-                return dialog.FileName;
+                InitialDirectory = def
+            };
+
+            DialogResult result = dialog.ShowDialog();
+            if(result == DialogResult.OK) {
+                return dialog.SelectedPath;
             }
             return null;
         }
 
         internal static void Error(string caption, string text, IntPtr handle)
         {
-            var dialog = new TaskDialog();
-            dialog.Icon = TaskDialogStandardIcon.Error;
-            dialog.Text = text;
-            dialog.InstructionText = caption;
-            dialog.Caption = Assembly.GetExecutingAssembly().GetName().Name;
-
-            dialog.OwnerWindowHandle = handle;
-
-            dialog.Show();
+            _ = TaskDialog.ShowDialog(handle, new TaskDialogPage()
+            {
+                Text = text,
+                Icon = TaskDialogIcon.Error,
+                Caption = caption,
+                Buttons =
+                {
+                    TaskDialogButton.OK
+                },
+                DefaultButton = TaskDialogButton.OK
+            });
         }
     }
 }

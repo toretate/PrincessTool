@@ -40,6 +40,7 @@
             this.CheckBox_Convert_Voice = new System.Windows.Forms.CheckBox();
             this.CheckBox_Convert_SE = new System.Windows.Forms.CheckBox();
             this.CheckBox_Convert_BGM = new System.Windows.Forms.CheckBox();
+            this.Button_Extract_Only = new System.Windows.Forms.Button();
             this.GroupBox_Options.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@
             // 
             // Button_Extract_Open
             // 
-            this.Button_Extract_Open.Location = new System.Drawing.Point(354, 183);
+            this.Button_Extract_Open.Location = new System.Drawing.Point(82, 185);
             this.Button_Extract_Open.Name = "Button_Extract_Open";
             this.Button_Extract_Open.Size = new System.Drawing.Size(92, 30);
             this.Button_Extract_Open.TabIndex = 7;
@@ -160,12 +161,24 @@
             this.CheckBox_Convert_BGM.TabIndex = 3;
             this.CheckBox_Convert_BGM.Text = "Convert BGM audio file (.wav)";
             this.CheckBox_Convert_BGM.UseVisualStyleBackColor = true;
+            //
+            // Button_Extract_Only
+            // 
+            this.Button_Extract_Only.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Button_Extract_Only.Location = new System.Drawing.Point(354, 186);
+            this.Button_Extract_Only.Name = "Button_Extract_Only";
+            this.Button_Extract_Only.Size = new System.Drawing.Size(218, 27);
+            this.Button_Extract_Only.TabIndex = 8;
+            this.Button_Extract_Only.Text = "Extract(from copied files)";
+            this.Button_Extract_Only.UseVisualStyleBackColor = true;
+            this.Button_Extract_Only.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 258);
+            this.Controls.Add(this.Button_Extract_Only);
             this.Controls.Add(this.Button_Extract_Open);
             this.Controls.Add(this.TextBox_Extract_Folder);
             this.Controls.Add(this.Label_Extract_Text);
@@ -202,6 +215,7 @@
         private System.Windows.Forms.CheckBox CheckBox_Convert_BGM;
         private System.Windows.Forms.CheckBox CheckBox_Convert_SE;
         private System.Windows.Forms.CheckBox CheckBox_Convert_Voice;
+        private System.Windows.Forms.Button Button_Extract_Only;
     }
 }
 

@@ -77,5 +77,36 @@ namespace AioiLight.PrincessTool
                 new Works.ConvertSound("v", "Convert Voice audio");
             }
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Program.Origin = TextBox_Origin_Folder.Text;
+            Program.Dest = TextBox_Extract_Folder.Text;
+            if (!Directory.Exists(Program.Origin))
+            {
+                Dialog.Error("Original directory is not found",
+                    "Original directory is not found.\n" +
+                    "Check path of directory.",
+                    Handle);
+            }
+
+            if (CheckBox_Rename.Checked)
+            {
+                new Works.RenameHashedFile();
+            }
+            if (CheckBox_Convert_BGM.Checked)
+            {
+                new Works.ConvertSound("b", "Convert BGM audio");
+            }
+            if (CheckBox_Convert_SE.Checked)
+            {
+                new Works.ConvertSound("s", "Convert SE audio");
+            }
+            if (CheckBox_Convert_Voice.Checked)
+            {
+                new Works.ConvertSound("v", "Convert Voice audio");
+            }
+
+        }
     }
 }

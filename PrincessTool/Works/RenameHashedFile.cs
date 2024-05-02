@@ -128,7 +128,7 @@ namespace AioiLight.PrincessTool.Works
                 }
                 catch (IOException)
                 {
-
+                    File.Delete(item);
                 }
                 finally
                 {
